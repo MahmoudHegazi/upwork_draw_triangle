@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<input id="lines" type="number">
+<p id="demo"></p>
+<button id="mybtn">Draw</button>
+
+<script>
+let t = document.querySelector('#demo');
+let lines_value = document.querySelector('#lines');
+let btn = document.querySelector('#mybtn');
+
+
+
+const myangle = {
+  makeline : (length) => {
+    let line = "";
+    for (var i=0; i < length; i++) {
+      line += "* ";
+    }
+    return line + "\n";
+  },
+  
+  jsTurtle : (lines_number) => {
+    let triangle = "";
+    for (var i=1; i <= lines_number; i++ ) {
+      triangle += myangle.makeline(i) + "<br />";
+    }
+    t.innerHTML = triangle;
+  
+   },
+   draw : () => {
+     myangle.jsTurtle(lines_value.value);
+   }
+}
+
+btn.addEventListener('click', myangle.draw);
+
+
+
+
+</script>
+
+</body>
+</html>
